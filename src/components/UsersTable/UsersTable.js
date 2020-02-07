@@ -8,6 +8,7 @@ import api from '../../services/baseService';
 import Navbar from '../Navbar/Navbar';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import Banner from '../Banner/Banner';
+// import UserSearch from '../UserSearch/UserSearch';
 import UserGrid from './UserGrid';
 
 const UsersTable = () => {
@@ -58,6 +59,7 @@ const UsersTable = () => {
       <Navbar />
       <Breadcrumb />
       <Banner />
+      {/* <UserSearch /> */}
       <UserGrid users={users} remove={remove} />
     </div>
   )

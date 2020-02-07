@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+.hold-navigator {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em;
+}
+
+.hold-navigator > div {
+  display: flex;
+  align-items: center;
+}
+
+.hold-navigator > div > span {
+  font-weight: 700;
+  font-size: 1.3em;
+  margin-left: 0.5em;
+}
+
+.hold-navigator > div > ul {
+  position: absolute;
+}
+
