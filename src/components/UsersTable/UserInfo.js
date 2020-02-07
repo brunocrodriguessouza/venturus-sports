@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import 'bulma';
 import 'bulma/css/bulma.css'
 
+import './UserInfo.scss';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,7 +11,6 @@ const UserInfo = ({ user, index, remove }) => {
   const { id, username, name, email, address, rideInGroup, weekDays, posts, albums } = user;
 
   const [toRemove, setToRemove] = useState(undefined);
-
 
 
   const numberOfPhotos = user => {
@@ -43,8 +44,8 @@ const UserInfo = ({ user, index, remove }) => {
   }
 
   return (
-    <tr key={id} onMouseEnter={() => trashIsVisible(index)} onMouseLeave={() => trashNotVisible()}>
-      <th>{username}</th>
+    <tr className="tr-row" key={id} onMouseEnter={() => trashIsVisible(index)} onMouseLeave={() => trashNotVisible()}>
+      <td>{username}</td>
       <td>{name}</td>
       <td>{email}</td>
       <td>{address && address.city}</td>
