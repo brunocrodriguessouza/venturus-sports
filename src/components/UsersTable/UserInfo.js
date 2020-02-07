@@ -2,9 +2,15 @@ import React, { useState } from 'react';
 import 'bulma';
 import 'bulma/css/bulma.css'
 
-const UserInfo = ({ user, index }) => {
-  const [toRemove, setToRemove] = useState(undefined);
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+
+const UserInfo = ({ user, index, remove }) => {
   const { id, username, name, email, address, rideInGroup, weekDays, posts, albums } = user;
+
+  const [toRemove, setToRemove] = useState(undefined);
+
+
 
   const numberOfPhotos = user => {
     if (user.albums.length > 0) {
@@ -21,7 +27,21 @@ const UserInfo = ({ user, index }) => {
     setToRemove(undefined);
   }
 
-  console.log(toRemove);
+  const isTrashVisible = (index) => (
+    (toRemove === index) &&
+    <button onClick={() => handleRemove(index)}>
+      <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
+    </button>
+  )
+
+  const handleRemove = (index) => {
+    if (toRemove === index) {
+      if (window.confirm('Are you sure you wish to delete this item?')) {
+        remove(index);
+      }
+    }
+  }
+
   return (
     <tr key={id} onMouseEnter={() => trashIsVisible(index)} onMouseLeave={() => trashNotVisible()}>
       <th>{username}</th>
@@ -33,6 +53,7 @@ const UserInfo = ({ user, index }) => {
       <td>{posts && posts.length}</td>
       <td>{albums && albums.length}</td>
       <td>{numberOfPhotos(user)}</td>
+      <td>{isTrashVisible(index)}</td>
     </tr>
   )
 };

@@ -13,6 +13,12 @@ import UserGrid from './UserGrid';
 const UsersTable = () => {
   const [users, setUsers] = useState([]);
 
+  const remove = (index) => {
+    const newUsers = users.slice(0, users.length);
+    newUsers.splice(index, 1);
+    setUsers(newUsers);
+  }
+
   useEffect(() => {
     axios.all([
       api.loadUsers(),
@@ -52,7 +58,7 @@ const UsersTable = () => {
       <Navbar />
       <Breadcrumb />
       <Banner />
-      <UserGrid users={users} />
+      <UserGrid users={users} remove={remove} />
     </div>
   )
 }

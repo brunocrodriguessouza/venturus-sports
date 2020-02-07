@@ -4,7 +4,7 @@ import 'bulma/css/bulma.css'
 
 import UserInfo from './UserInfo';
 
-const UserGrid = ({ users }) => {
+const UserGrid = ({ users, remove }) => {
 
   const buildHeaderUser = () => (
     <thead>
@@ -18,6 +18,7 @@ const UserGrid = ({ users }) => {
         <th><abbr title="Posts">Posts</abbr></th>
         <th><abbr title="Albuns">Albuns</abbr></th>
         <th><abbr title="Photos">Photos</abbr></th>
+        <th></th>
       </tr>
     </thead>
   );
@@ -29,8 +30,14 @@ const UserGrid = ({ users }) => {
       }
       <tbody>
         {
-          users.map((user, index) => (
-            user.id && <UserInfo key={user.id} user={user} index={index} />
+          (users) && users.map((user, index) => (
+            user.id &&
+            <UserInfo
+              key={user.id}
+              user={user}
+              index={index}
+              remove={remove}
+            />
           ))
         }
       </tbody>
