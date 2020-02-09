@@ -14,7 +14,7 @@ const Navbar = () => {
         <div className="navbar-start">
           <div className="hold-navigator">
             <div>
-              <img src="assets/images/logo.svg" />
+              <img alt='logo' src="assets/images/logo.svg" />
               <span>Venturus Sports</span>
             </div>
           </div>
