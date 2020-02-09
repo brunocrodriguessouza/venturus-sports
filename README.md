@@ -9,11 +9,19 @@ In the project directory, you can run:
 ### available rest api
 
 https://jsonplaceholder.typicode.com/users
+
+
 https://jsonplaceholder.typicode.com/posts
+
+
 https://jsonplaceholder.typicode.com/albums
+
+
 https://jsonplaceholder.typicode.com/photos
 
+
 http://localhost:3333/week-days
+
 http://localhost:3333//ride-in-group
 
 
